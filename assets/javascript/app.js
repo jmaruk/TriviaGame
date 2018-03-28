@@ -1,3 +1,51 @@
+var questions = [
+    {
+        question: "Where does Lorelei and Rory live?",
+        answers: ["Hartford", "Stars Hollow", "Los Angeles"],
+        correct: 1
+    },
+    {
+        question: "Where did Rory go to College?",
+        answers: ["Harvard", "Yale", "Princeton"],
+        correct: 1
+    }
+    {
+        question: "Who was Rory's first kiss?",
+        answers: ["Jess", "Logan", "Dean"],
+        correct: 2
+    }
+    {
+        question: "Who proposed to Rory?",
+        answers: ["Dean", "Jess", "Logan"],
+        correct: 2
+    }
+    {
+        question: "Who did Lorelei marry in Paris?",
+        answers: ["Luke", "Max", "Christoper"],
+        correct: 2
+    }
+    {
+        question: "What was Rory's dream job?",
+        answers: ["Writer", "Lawyer", "Doctor"],
+        correct: 0
+    }
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function check() {
     var question1 = document.quiz.question1.value;
     var question2 = document.quiz.question2.value;
