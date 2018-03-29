@@ -1,55 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-   
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     <title>Trivia Game</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <h2 id="game-title">Trivia Game</h2>
+    <h3 id="timer"></h3>
+    <div id="board">
 
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-
-    <script src="main.js"></script>
-</head>
-<body>
-    <div class="container">
-    <div id="Quiz-box">
-        <h1>
-            Gilmore Girls Trivia Game!
-        </h1>
-        <form id="quiz" name = "quiz">
-            <p>1.) Where does Lorelei and Rory live?</p>
-            <input type = "radio" id = "mc" name = "question1" value = "Hartfort"> Hartford<br>
-            <input type = "radio" id = "mc" name = "question1" value = "Stars Hollow"> Stars Hollow<br>
-            <input type = "radio" id = "mc" name = "question1" value = "Los Angeles"> Los Angeles<br>
-            <p>2.) Where did Rory go to College?</p>
-            <input type = "radio" id = "mc" name = "question2" value = "Harvard"> Harvard<br>
-            <input type = "radio" id = "mc" name = "question2" value = "Yale"> Yale<br>
-            <input type = "radio" id = "mc" name = "question2" value = "Princeton"> Princeton<br>
-            <p>3.) Who was Rory's first kiss?</p>
-            <input type = "radio" id = "mc" name = "question3" value = "Jess"> Jess<br>
-            <input type = "radio" id = "mc" name = "question3" value = "Logan"> Logan<br>
-            <input type = "radio" id = "mc" name = "question3" value = "Dean"> Dean<br>
-            <p>4.) Who proposed to Rory?</p>
-            <input type = "radio" id = "mc" name = "question4" value = "Dean"> Dean<br>
-            <input type = "radio" id = "mc" name = "question4" value = "Jess"> Jess<br>
-            <input type = "radio" id = "mc" name = "question4" value = "Logan"> Logan<br>
-            <p>5.) Who did Lorelei marry in Paris?</p>
-            <input type = "radio" id = "mc" name = "question5" value = "Luke"> Luke<br>
-            <input type = "radio" id = "mc" name = "question5" value = "Max"> Max<br>
-            <input type = "radio" id = "mc" name = "question5" value = "Christoper"> Christopher<br>
-            <p>6.) What was Rory's dream job?</p>
-            <input type = "radio" id = "mc" name = "question6" value = "Lawyer"> Lawyer<br>
-            <input type = "radio" id = "mc" name = "question6" value = "Writer"> Writer<br>
-            <input type = "radio" id = "mc" name = "question6" value = "Doctor"> Doctor<br>
-            <br>           
-            <input id = "button" type = "button" value = "Submit" onclick = "check();">
-        
-        </form>
     </div>
-        <div id= "after_submit">
-        <p id="message"></p>
-        <p id= "number_correct"></p>
+  </body>
+  <script type="text/javascript" src="assets/javascript/app.js">
 
-        </div>
-    </div>
-</body>
+  </script>
 </html>

@@ -1,96 +1,124 @@
 var questions = [
     {
-        question: "Where does Lorelei and Rory live?",
+        question: "1.) Where does Lorelei and Rory live?",
         answers: ["Hartford", "Stars Hollow", "Los Angeles"],
         correct: 1
     },
     {
-        question: "Where did Rory go to College?",
+        question: "2.) Where did Rory go to College?",
         answers: ["Harvard", "Yale", "Princeton"],
         correct: 1
-    }
+    },
     {
-        question: "Who was Rory's first kiss?",
+        question: "3.) Who was Rory's first kiss?",
         answers: ["Jess", "Logan", "Dean"],
         correct: 2
-    }
+    },
     {
-        question: "Who proposed to Rory?",
+        question: "4.) Who proposed to Rory?",
         answers: ["Dean", "Jess", "Logan"],
         correct: 2
-    }
+    },
     {
-        question: "Who did Lorelei marry in Paris?",
+        question: "5.) Who did Lorelei marry in Paris?",
         answers: ["Luke", "Max", "Christoper"],
         correct: 2
-    }
+    },
     {
-        question: "What was Rory's dream job?",
+        question: "6.) What was Rory's dream job?",
         answers: ["Writer", "Lawyer", "Doctor"],
         correct: 0
     }
 ];
 
+var timer;
+var playerAnswerChoices;
+var score = 0;
+var board = $('#board');
+
+function playGame() {
+  console.log("hi");
+  setUpBoard();
+  setTimeout(timeUp, 1000 * 30);
+}
+
+function setUpBoard() {
+  clearStartButton();
+  for(var i = 0; i < questions.length; i++) {
+    displayQuestion(questions[i], i);
+  }
+  makeSubmitButton();
+}
+
+function clearStartButton() {
+  board.empty();
+}
+
+function makeSubmitButton() {
+  var submitBtn = $('<button>').text("Submit");
 
 
+  submitBtn.on('click', function() {
+    scoreGame();
+  });
 
+  board.append(submitBtn);
+}
 
+function scoreGame() {
+  var answerElements = $('input:checked');
+  var answerChoices = [];
 
+  for(var i = 0; i < answerElements.length; i++) {
+    answerChoices.push(answerElements[i].value);
+  }
 
-
-
-
-
-
-
-
-
-
-function check() {
-    var question1 = document.quiz.question1.value;
-    var question2 = document.quiz.question2.value;
-    var question3 = document.quiz.question3.value;
-    var question4 = document.quiz.question4.value;
-    var question5 = document.quiz.question5.value;
-    var question6 = document.quiz.question6.value;
-    var correct = 0;
-
-    if (question1 =="Stars Hollow") {
-        correct++;
+  for(var i = 0; i < answerElements.length; i++) {
+    if(questions[i].answers[questions[i].correct] === answerChoices[i]) {
+      score++;
     }
-    if (question2 =="Yale") {
-        correct++;
-    }
-    if (question3 =="Dean") {
-        correct++;
-    }
-    if (question4 =="Logan") {
-        correct++;
-    }
-    if (question5 =="Christoper") {
-        correct++;
-    }
-    if (question6 =="Writer") {
-        correct++;
-    }
+  }
 
-    var messages = ["Great Job!", "That's okay", "You need to watch more Gilmore Girls"];
+  board.empty();
+  board.text("You got " + score + " questions right!");
+}
 
-    var range;
+function displayQuestion(question, questionNum) {
+  var questionBox = $('<div>');
+  var questionStem = $('<p>').text(question.question);
+  questionBox.append(questionStem);
+  var answerChoices = question.answers;
 
-        if (correct < 1) {
-            range = 2;
-        }
-        if (correct > 0 && correct < 4) {
-            range = 1;
-        }
-        if (correct > 5) {
-            range = 0;
-        }
+  var answerBox = $('<div>');
 
-    document.getElementById("after_submit").style.visibility = "visible";
-    document.getElementById("number_correct").innerHTML = "You got " + correct + " correct.";
-    }
+  for(var i = 0; i < answerChoices.length; i++) {
+    var answerButton = $('<input>' + answerChoices[i]+ '</input>');
+    answerButton.attr({
+      type: 'radio',
+      name: questionNum,
+      value: answerChoices[i],
+    });
 
+    answerBox.append(answerButton);
+  }
 
+  questionBox.append(answerBox);
+  board.append(questionBox);
 
+}
+
+function makeAnswerRadioButtons() {
+
+}
+
+function makeStartButton() {
+  var startBtn = $('<button>').text("Start");
+
+  startBtn.on('click', function() {
+    playGame();
+  });
+
+  board.append(startBtn);
+}
+
+makeStartButton();
