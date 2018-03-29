@@ -31,15 +31,22 @@ var questions = [
     }
 ];
 
-var timer;
+var timer = $('#timer');
 var playerAnswerChoices;
 var score = 0;
 var board = $('#board');
+var counter = 0;
 
 function playGame() {
   console.log("hi");
   setUpBoard();
-  setTimeout(timeUp, 1000 * 30);
+  
+}
+
+setInterval("timer()", 1000)
+function timer() {
+    timer++;
+    $('timer').text(counter);
 }
 
 function setUpBoard() {
